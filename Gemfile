@@ -63,6 +63,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'active_decorator'
 gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'
