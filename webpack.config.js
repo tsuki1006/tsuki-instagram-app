@@ -6,7 +6,8 @@ module.exports = {
   devtool: "source-map",
 
   entry: {  // エントリポイント
-    application: "./app/javascript/application.js"
+    application: "./app/javascript/application.js",
+    profile:     "./app/javascript/profile.js"
   },
 
   output: {
