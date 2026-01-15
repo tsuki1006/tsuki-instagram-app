@@ -25,4 +25,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, uniqueness: true
+
+  has_one :profile, dependent: :destroy
+
+  def prepare_profile
+    profile || build_profile
+  end
 end

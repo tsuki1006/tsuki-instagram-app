@@ -1,0 +1,16 @@
+// VSCodeにこのプロジェクトのライブラリを認識させるためのファイル
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "paths": {
+      "*": [
+        "app/javascript/*",  // 1. まず app/javascript 内を探索するように設定
+        "node_modules/*"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "public", "app/assets/builds"]
+}
