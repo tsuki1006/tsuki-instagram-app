@@ -3,3 +3,29 @@
     = image_tag 'photo-camera.png'
 
   %section.articles
+    %ul
+      - @articles.each do |article|
+        - author = article.user
+
+        %li
+          .article
+
+            .article_author
+              = image_tag author.profile.avatar
+              %div= author.name
+              %div= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
+
+            .article_content
+              .article_content_images
+                %ul
+                  - article.images.each do |image|
+                    %li= image_tag url_for(image)
+
+              .article_content_actions
+                = image_tag 'inactive-like.png'
+                = image_tag 'comment.png'
+                = image_tag 'share.png'
+
+              .article_content_content
+                %div= author.name
+                %p= article.content
