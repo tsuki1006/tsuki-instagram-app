@@ -6,12 +6,17 @@
       Post
 
   %section
+    %ul.error_messages
+      - @article.errors.full_messages.each do |message|
+        %li.error_message= message
+
+  %section
     %div
       = image_tag current_user.avatar_image_url
     %div
       %span= current_user.name
 
-  = form_with(model: @article, url: '#', id: 'form-article-new', local: true) do |f|
+  = form_with(model: @article, url: articles_path, id: 'form-article-new', local: true) do |f|
     %div
       = f.text_area :content, placeholder: "What's on your mind ?"
     %div
