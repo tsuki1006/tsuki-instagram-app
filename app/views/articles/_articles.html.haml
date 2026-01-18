@@ -19,7 +19,8 @@
           .article_content_actions
             = image_tag 'inactive-like.png'
             = image_tag 'comment.png'
-            = image_tag 'share.png'
+            = link_to "https://x.com/intent/tweet?url=#{article_url(article.id)}", title: 'X', target: '_blank' do
+              = image_tag 'share.png'
 
           .article_content_content
             %div= author.name
