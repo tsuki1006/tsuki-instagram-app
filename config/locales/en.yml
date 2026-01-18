@@ -29,3 +29,44 @@
 
 en:
   hello: "Hello world"
+
+  datetime:
+    distance_in_words:
+      short:
+          about_x_hours:
+            one: '{count} hour'
+            other: '%{count} hours'
+          about_x_months:
+            one: '{count} month'
+            other: '%{count} months'
+          about_x_years:
+            one: '{count} year'
+            other: '%{count} years'
+          almost_x_years:
+            one: '{count} year'
+            other: '%{count} years'
+          half_a_minute: 30 minute'
+          less_than_x_seconds:
+            one: '1 second'
+            other: '%{count} seconds'
+          less_than_x_minutes:
+            one: '1 minute'
+            other: '%{count} minutes'
+          over_x_years:
+            one: 'over %{count} year'
+            other: 'over %{count} years'
+          x_seconds:
+            one: '%{count} second'
+            other: '%{count} seconds'
+          x_minutes:
+            one: '%{count} minute'
+            other: '%{count} minutes'
+          x_days:
+            one: '%{count} day'
+            other: '%{count} days'
+          x_months:
+            one: '%{count} month'
+            other: '%{count} months'
+          x_years:
+            one: '%{count} year'
+            other: '%{count} years'

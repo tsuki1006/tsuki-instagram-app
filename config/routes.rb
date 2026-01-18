@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :profile, only: [ :show, :update ]
+  resources :articles, only: [ :index, :show, :new, :create ]
 end
