@@ -4,3 +4,5 @@
 
   %section.articles
     = render 'articles', articles: @articles
+
+= javascript_include_tag "article", "data-turbo-track": "reload", defer: true
