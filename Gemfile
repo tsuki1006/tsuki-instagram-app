@@ -65,6 +65,7 @@ end
 
 gem 'active_decorator'
 gem 'active_model_serializers'
+gem 'dartsass-rails', '~> 0.5.1'
 gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'
