@@ -3,7 +3,7 @@
     - author = article.user
 
     %li
-      .article
+      .article{ data: {article_id: article.id}}
 
         .article_author
           = image_tag author.profile.avatar
@@ -17,7 +17,13 @@
                 %li= image_tag url_for(image)
 
           .article_content_actions
-            = image_tag 'inactive-like.png'
+
+            .like
+              .like_heart.active-heart.hidden
+                = image_tag 'active-like.png'
+              .like_heart.inactive-heart.hidden
+                = image_tag 'inactive-like.png'
+
             = image_tag 'comment.png'
             = link_to "https://x.com/intent/tweet?url=#{article_url(article.id)}", title: 'X', target: '_blank' do
               = image_tag 'share.png'

@@ -7,6 +7,7 @@ module.exports = {
 
   entry: {  // エントリポイント
     application: "./app/javascript/application.js",
+    article:     "./app/javascript/article.js",
     profile:     "./app/javascript/profile.js"
   },
 

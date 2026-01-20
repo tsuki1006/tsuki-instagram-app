@@ -11,10 +11,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root 'home#index'
+  root 'articles#index'
 
   devise_for :users
 
   resource :profile, only: [ :show, :update ]
-  resources :articles, only: [ :index, :show, :new, :create ]
+
+  resources :articles, only: [ :index, :show, :new, :create ] do
+    resource :like, only: [ :show, :create, :destroy ]
+  end
 end
