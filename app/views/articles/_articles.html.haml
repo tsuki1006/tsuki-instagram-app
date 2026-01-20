@@ -24,7 +24,8 @@
               .like_heart.inactive-heart.hidden
                 = image_tag 'inactive-like.png'
 
-            = image_tag 'comment.png'
+            = link_to article_comments_path(article) do
+              = image_tag 'comment.png'
             = link_to "https://x.com/intent/tweet?url=#{article_url(article.id)}", title: 'X', target: '_blank' do
               = image_tag 'share.png'
 

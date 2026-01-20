@@ -19,5 +19,6 @@ Rails.application.routes.draw do
 
   resources :articles, only: [ :index, :show, :new, :create ] do
     resource :like, only: [ :show, :create, :destroy ]
+    resources :comments, only: [ :index, :create ]
   end
 end
