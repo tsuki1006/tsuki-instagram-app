@@ -1,6 +1,20 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
 
+const appendNewComment = (comment) => {
+  $('.comments_list').append(
+    `
+    <li class="comment">
+      <div class="comment_author">
+        <img src="${comment.avatar_url}">
+        <div>${comment.user_name}</div>
+      </div>
+      <p>${comment.content}</p>
+    </li>
+    `
+  )
+}
+
 document.addEventListener('turbo:load', () => {
 
   const articleId = $('#article').data('articleId')
@@ -10,17 +24,7 @@ document.addEventListener('turbo:load', () => {
     .then((res) => {
       const comments = res.data
       comments.forEach((comment) => {
-        $('.comments_list').append(
-          `
-          <li class="comment">
-            <div class="comment_author">
-              <img src="${comment.avatar_url}">
-              <div>${comment.user_name}</div>
-            </div>
-            <p>${comment.content}</p>
-          </li>
-          `
-        )
+        appendNewComment(comment)
       })
     })
 
@@ -42,19 +46,7 @@ document.addEventListener('turbo:load', () => {
           // コメントを画面に追加
           .then((res) => {
             const comment = res.data
-            console.log(res)
-
-            $('.comments_list').append(
-              `
-              <li class="comment">
-                <div class="comment_author">
-                  <img src="${comment.avatar_url}">
-                  <div>${comment.user_name}</div>
-                </div>
-                <p>${comment.content}</p>
-              </li>
-              `
-            )
+            appendNewComment(comment)
             $('#comment_content').val('')
           })
 
