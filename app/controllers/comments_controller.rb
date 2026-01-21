@@ -3,6 +3,13 @@ class CommentsController < ApplicationController
 
   def index
     @article = Article.find(params[:article_id])
+    @comments = @article.comments
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @comments }
+    end
+
   end
 
   def create

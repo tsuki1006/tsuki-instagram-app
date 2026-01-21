@@ -3,6 +3,27 @@ import axios from 'modules/axios'
 
 document.addEventListener('turbo:load', () => {
 
+  const articleId = $('#article').data('articleId')
+
+  // 全てのコメントを表示
+  axios.get(`/articles/${articleId}/comments.json`)
+    .then((res) => {
+      const comments = res.data
+      comments.forEach((comment) => {
+        $('.comments_list').append(
+          `
+          <li class="comment">
+            <div class="comment_author">
+              <img src="${comment.avatar_url}">
+              <div>${comment.user_name}</div>
+            </div>
+            <p>${comment.content}</p>
+          </li>
+          `
+        )
+      })
+    })
+
   // コメント追加
   $('#comment_content').on('keydown', function(e) {
     if(e.key == 'Enter') {
@@ -15,7 +36,6 @@ document.addEventListener('turbo:load', () => {
       } else {
 
         // コメント送信
-        const articleId = $('#article').data('articleId')
         axios.post(`/articles/${articleId}/comments`, {
           comment: { content: content }
         })
