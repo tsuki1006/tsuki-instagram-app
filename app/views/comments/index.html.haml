@@ -1,4 +1,4 @@
-.container
+.container{ id: 'article', data: {article_id: @article.id}}
   %header
     = link_to :back do
       = image_tag 'back.png', class: 'header_back'
@@ -11,3 +11,5 @@
     .new_comment_input
       = image_tag 'comment.png'
       = text_area_tag :comment_content, ''
+
+= javascript_include_tag "comment", "data-turbo-track": "reload", defer: true
