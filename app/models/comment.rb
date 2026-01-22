@@ -24,4 +24,19 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :article
+
+  after_create :send_email
+
+  private
+  def send_email
+    user_name_pattern = /@([^@\s、。！？（）「」『』.,()!?:;]+)/
+    mentioned_users = self.content.scan(user_name_pattern).flatten
+
+    mentioned_users.each do |user|
+      mentioned_user = User.find_by(name: user)
+      if mentioned_user.present?
+        CommentMailer.mentioned(mentioned_user, self).deliver_later
+      end
+    end
+  end
 end
