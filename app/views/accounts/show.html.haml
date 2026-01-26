@@ -1,0 +1,16 @@
+.container
+  %header
+  = link_to :back do
+    = image_tag 'back.png', class: 'header_back'
+  .user_name
+    = @user.name
+  .relationship
+    .follow.hidden
+      %p follow
+    .unfollow.hidden
+      %p unfollow
+
+  .profile
+    .user_image
+      .avatar
+        =image_tag @user.avatar_image_url
