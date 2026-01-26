@@ -55,6 +55,8 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do
@@ -70,3 +72,4 @@ gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'
 gem 'jsbundling-rails', '~> 1.3'
+gem 'sidekiq'
