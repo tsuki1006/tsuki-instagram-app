@@ -10,6 +10,20 @@ const handleFollowDisplay = (isFollowing) => {
   }
 }
 
+// フォロワーの数を+1
+const followersCountUp = () => {
+  const followerCount = $('#followers_count').text()
+  const count = Number(followerCount)
+  $('#followers_count').text(count+1)
+}
+
+// フォロワーの数を-1
+const followersCountDown = () => {
+  const followerCount = $('#followers_count').text()
+  const count = Number(followerCount)
+  $('#followers_count').text(count-1)
+}
+
 document.addEventListener('turbo:load', () => {
 
   // フォローの状態を取得
@@ -27,6 +41,7 @@ document.addEventListener('turbo:load', () => {
         if (res.data.status === 'ok') {
           $(this).addClass('hidden')
           $('.unfollow').removeClass('hidden')
+          followersCountUp()
         }
       })
       .catch((e) => {
@@ -42,6 +57,7 @@ document.addEventListener('turbo:load', () => {
         if (res.data.status === 'ok') {
           $(this).addClass('hidden')
           $('.follow').removeClass('hidden')
+          followersCountDown()
         }
       })
       .catch((e) => {

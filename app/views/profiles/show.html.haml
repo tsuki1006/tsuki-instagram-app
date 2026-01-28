@@ -12,5 +12,7 @@
         = f.label :avatar do
           %div.avatar
         = f.file_field :avatar, class: 'input_avatar', style: 'display:none;'
+    .user_counts
+      = render 'commons/counts', user: current_user
 
 = javascript_include_tag "profile", "data-turbo-track": "reload", defer: true

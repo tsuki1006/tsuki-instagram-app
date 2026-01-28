@@ -1,0 +1,10 @@
+%ul.user_counts_list
+  %li.count_posts
+    %span.count= user.articles.count
+    %span.count_type Posts
+  %li.count_followers
+    %span.count#followers_count= user.followers.count
+    %span.count_type Followers
+  %li.count_followings
+    %span.count= user.followings.count
+    %span.count_type Followings
