@@ -1,5 +1,9 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
+import {
+  listenFollowEvent,
+  listenUnfollowEvent
+} from 'modules/handle_relationship'
 
 // フォローしていたら'unfollow', フォローしていなければ'follow'を表示
 const handleFollowDisplay = (isFollowing) => {
@@ -8,20 +12,6 @@ const handleFollowDisplay = (isFollowing) => {
   } else {
     $('.follow').removeClass('hidden')
   }
-}
-
-// フォロワーの数を+1
-const followersCountUp = () => {
-  const followerCount = $('#followers_count').text()
-  const count = Number(followerCount)
-  $('#followers_count').text(count+1)
-}
-
-// フォロワーの数を-1
-const followersCountDown = () => {
-  const followerCount = $('#followers_count').text()
-  const count = Number(followerCount)
-  $('#followers_count').text(count-1)
 }
 
 document.addEventListener('turbo:load', () => {
@@ -35,35 +25,8 @@ document.addEventListener('turbo:load', () => {
     })
 
   // フォローする
-  $('.follow').on('click', function() {
-    axios.post(`/accounts/${accountId}/follow`)
-      .then((res) => {
-        if (res.data.status === 'ok') {
-          $(this).addClass('hidden')
-          $('.unfollow').removeClass('hidden')
-          followersCountUp()
-        }
-      })
-      .catch((e) => {
-        window.alert('Error')
-        console.log(e)
-      })
-  })
-
+  listenFollowEvent(accountId)
   // フォローを外す
-  $('.unfollow').on('click', function() {
-    axios.post(`/accounts/${accountId}/unfollow`)
-      .then((res) => {
-        if (res.data.status === 'ok') {
-          $(this).addClass('hidden')
-          $('.follow').removeClass('hidden')
-          followersCountDown()
-        }
-      })
-      .catch((e) => {
-        window.alert('Error')
-        console.log(e)
-      })
-  })
+  listenUnfollowEvent(accountId)
 
 })
