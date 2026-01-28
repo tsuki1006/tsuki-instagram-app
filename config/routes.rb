@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :profile, only: [ :show, :update ]
-  resources :accounts, only: [ :show ]
+  resources :accounts, only: [ :show ] do
+    resource :follows, only: [ :show ]
+  end
 
   resources :articles, only: [ :index, :show, :new, :create ] do
     resource :like, only: [ :show, :create, :destroy ]

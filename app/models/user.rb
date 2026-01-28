@@ -41,6 +41,10 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
+  def is_following?(user)
+    following_relationships.exists?(following_id: user.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end
