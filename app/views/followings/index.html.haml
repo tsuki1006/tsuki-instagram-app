@@ -4,10 +4,4 @@
       = image_tag 'back.png', class: 'header_back'
     %h2 Followings
 
-  %section.followings_section
-    %ul.followings_list
-      - @followings.each do |following|
-        %li
-          = image_tag following.avatar_image_url
-          %div= following.name
-          %div= "Last seen " + time_ago_in_words(following.current_sign_in_at, scope: 'datetime.distance_in_words.short') + " ago"
+  = render 'commons/accounts', accounts: @followings
