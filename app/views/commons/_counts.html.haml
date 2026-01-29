@@ -6,5 +6,6 @@
     %span.count#followers_count= user.followers.count
     %span.count_type Followers
   %li.count_followings
-    %span.count= user.followings.count
-    %span.count_type Followings
+    =link_to account_followings_path(account_id: user.id) do
+      %span.count= user.followings.count
+      %span.count_type Followings
