@@ -1,0 +1,13 @@
+.container
+  %header
+    = link_to :back do
+      = image_tag 'back.png', class: 'header_back'
+    %h2 Followers
+
+  %section.followers_section
+    %ul.followers_list
+      - @followers.each do |follower|
+        %li
+          = image_tag follower.avatar_image_url
+          %div= follower.name
+          %div= "Last seen " + time_ago_in_words(follower.current_sign_in_at, scope: 'datetime.distance_in_words.short') + " ago"
