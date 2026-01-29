@@ -9,7 +9,8 @@ module.exports = {
     application: "./app/javascript/application.js",
     article:     "./app/javascript/article.js",
     comment:     "./app/javascript/comment.js",
-    profile:     "./app/javascript/profile.js"
+    profile:     "./app/javascript/profile.js",
+    relationship: "./app/javascript/relationship.js"
   },
 
   output: {

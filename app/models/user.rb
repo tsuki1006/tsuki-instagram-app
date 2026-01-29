@@ -3,12 +3,17 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  current_sign_in_at     :datetime
+#  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  last_sign_in_at        :datetime
+#  last_sign_in_ip        :string
 #  name                   :string           default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  sign_in_count          :integer          default(0), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -22,7 +27,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable
 
   validates :name, presence: true, uniqueness: true
 
@@ -31,11 +36,30 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
+  has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
+
+  has_many :followings, through: :following_relationships, source: :following
+  has_many :followers, through: :follower_relationships, source: :follower
+
   def has_liked?(article)
     likes.exists?(article_id: article.id)
   end
 
+  def is_following?(user)
+    following_relationships.exists?(following_id: user.id)
+  end
+
   def prepare_profile
     profile || build_profile
+  end
+
+  def follow!(user)
+    following_relationships.create!(following_id: user.id)
+  end
+
+  def unfollow!(user)
+    relation = following_relationships.find_by!(following_id: user.id)
+    relation.destroy!
   end
 end

@@ -6,7 +6,8 @@
       .article{ data: {article_id: article.id}}
 
         .article_author
-          = image_tag author.profile.avatar
+          = link_to account_path(author) do
+            = image_tag author.avatar_image_url
           %div= author.name
           %div= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
 
