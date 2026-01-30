@@ -3,6 +3,6 @@
     = image_tag 'photo-camera.png'
 
   %section.articles
-    = render 'commons/articles', articles: @articles
+    = render 'commons/articles', articles: @timeline_articles
 
 = javascript_include_tag "article", "data-turbo-track": "reload", defer: true
