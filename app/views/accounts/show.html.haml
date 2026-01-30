@@ -1,14 +1,14 @@
 .container
   %header
-  = link_to :back do
-    = image_tag 'back.png', class: 'header_back'
-  .user_name#account_show{ data: {account_id: @user.id}}
-    = @user.name
-  .relationship
-    .follow.hidden
-      %p follow
-    .unfollow.hidden
-      %p unfollow
+    = link_to :back do
+      = image_tag 'back.png', class: 'header_back'
+    .user_name#account_show{ data: {account_id: @user.id}}
+      = @user.name
+    .relationship
+      .follow.hidden
+        %p follow
+      .unfollow.hidden
+        %p unfollow
 
   .profile
     .user_image
@@ -16,5 +16,8 @@
         =image_tag @user.avatar_image_url
     .user_counts
       = render 'commons/counts', user: @user
+
+    .user_article_eyecatches
+      = render 'commons/eyecatches', user: @user
 
 = javascript_include_tag "relationship", "data-turbo-track": "reload", defer: true
