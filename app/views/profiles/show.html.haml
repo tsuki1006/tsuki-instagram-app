@@ -18,4 +18,7 @@
     .user_counts
       = render 'commons/counts', user: current_user
 
+    .user_article_eyecatches
+      = render 'commons/eyecatches', user: current_user
+
 = javascript_include_tag "profile", "data-turbo-track": "reload", defer: true

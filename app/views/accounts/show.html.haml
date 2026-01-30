@@ -17,4 +17,7 @@
     .user_counts
       = render 'commons/counts', user: @user
 
+    .user_article_eyecatches
+      = render 'commons/eyecatches', user: @user
+
 = javascript_include_tag "relationship", "data-turbo-track": "reload", defer: true

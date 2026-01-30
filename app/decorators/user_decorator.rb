@@ -10,4 +10,8 @@ module UserDecorator
       'default-avatar.svg'
     end
   end
+
+  def article_eyecatches
+    articles.map { |article| article.images.first }
+  end
 end
