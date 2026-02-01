@@ -1,8 +1,9 @@
 .container
   %header
-    = link_to 'Cancel', articles_path
+    .link_cancel
+      = link_to 'Cancel', articles_path
     %h2 Status
-    %button{type: "submit", form: 'form-article-new'}
+    %button.btn_post{type: "submit", form: 'form-article-new'}
       Post
 
   %section

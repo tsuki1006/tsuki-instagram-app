@@ -1,8 +1,9 @@
 .container
   %header
-    = link_to :back do
-      = image_tag 'back.png', class: 'header_back'
-    .user_name
+    .link_back
+      = link_to :back do
+        = image_tag 'back.png'
+    %h2.user_name
       = current_user.name
 
   %ul

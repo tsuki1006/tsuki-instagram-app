@@ -1,0 +1,55 @@
+// header
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+header {
+  @include mix.font_medi(var.$font-size-lg);
+  position: relative;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  .link_back {
+    position: absolute;
+    left: 0px;
+
+    img {
+      display: block;
+      width: 17px;
+      height: auto;
+    }
+  }
+
+  .link_cancel {
+    @extend .link_back;
+
+    a {
+    color: var.$color-text-bl;
+    }
+  }
+
+  .link_new {
+    @extend .link_back;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  .btn_post {
+    @extend .relationship;
+    @include mix.font_medi(var.$font-size-lg);
+    border: none;
+    background-color: transparent;
+  }
+
+  .relationship {
+    position: absolute;
+    right: 0px;
+    color: var.$color-text-thin;
+  }
+
+}

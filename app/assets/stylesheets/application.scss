@@ -1,5 +1,7 @@
 @use 'variables' as var;
+@use 'mixins' as mix;
 @use 'user_form';
+@use 'header';
 
 html {
   word-spacing: 1px;
@@ -36,8 +38,7 @@ body {
 }
 
 h2 {
-  font-family: var.$font-family-medi;
-  font-size: var.$font-size-lg;
+  @include mix.font_medi(var.$font-size-lg);
 }
 
 a {

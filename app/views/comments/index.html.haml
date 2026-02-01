@@ -1,7 +1,8 @@
 .container{ id: 'article', data: {article_id: @article.id}}
   %header
-    = link_to :back do
-      = image_tag 'back.png', class: 'header_back'
+    .link_back
+      = link_to :back do
+        = image_tag 'back.png'
     %h2 Comment
 
   %section.comments
