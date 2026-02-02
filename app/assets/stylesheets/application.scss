@@ -1,5 +1,6 @@
 @use 'variables' as var;
 @use 'mixins' as mix;
+@use 'flash';
 @use 'user_form';
 @use 'header';
 @use 'avatar';
@@ -66,4 +67,19 @@ input {
 
 .hidden {
   display: none;
+}
+
+.error_message {
+  color: var.$color-text-thin;
+}
+
+.devise_error {
+  font-family: var.$font-family;
+  padding-bottom: 25px;
+  color: var.$color-text-thin;
+
+  h2 {
+    font-family: var.$font-family;
+    font-size: var.$font-size-md;
+  }
 }
