@@ -51,10 +51,12 @@
   @include mix.font_medi(var.$font-size);
 
   .author_comment {
-    display: flex;
-    gap: 5px;
+    span {
+      margin-right: 3px;
+    }
 
     p {
+      display: inline;
       font-family: var.$font-family
     }
   }
