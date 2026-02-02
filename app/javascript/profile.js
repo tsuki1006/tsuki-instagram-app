@@ -6,7 +6,7 @@ document.addEventListener('turbo:load', () => {
   // アバター画像を取得して表示
   const avatarImageUrl = $('#profile-avatar').data('avatarImageUrl')
   $('.avatar').append(
-    `<img class='avatar_image' src=${avatarImageUrl}>`
+    `<img class='avatar_image avatar_l' src=${avatarImageUrl}>`
   )
 
   // 変更されたアバター画像をサーバーに送り、画面上の画像を更新

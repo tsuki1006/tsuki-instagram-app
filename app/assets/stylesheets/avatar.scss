@@ -14,3 +14,9 @@
 .avatar_m {
   @include avatar(40px);
 }
+
+.avatar_l {
+  @include avatar(77px);
+  padding: 2px;
+  border: 1px solid #E91E63
+}
