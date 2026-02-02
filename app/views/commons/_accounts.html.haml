@@ -1,7 +1,9 @@
-%section.accounts_section
+%section
   %ul.accounts_list
     - accounts.each do |account|
-      %li
-        = image_tag account.avatar_image_url
-        %div= account.name
-        %div= "Last seen " + time_ago_in_words(account.current_sign_in_at, scope: 'datetime.distance_in_words.short') + " ago"
+      %li.account
+        %div
+          = image_tag account.avatar_image_url, class: 'avatar_m'
+        .account_info
+          .account_name= account.name
+          .account_login= "Last seen " + time_ago_in_words(account.current_sign_in_at, scope: 'datetime.distance_in_words.short') + " ago"
