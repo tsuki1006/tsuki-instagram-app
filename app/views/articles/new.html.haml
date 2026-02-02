@@ -6,23 +6,23 @@
     %button.btn_post{type: "submit", form: 'form-article-new'}
       Post
 
-  %section
+  %section.section_article_new
     %ul.error_messages
       - @article.errors.full_messages.each do |message|
         %li.error_message= message
 
-  %section
-    %div
-      = image_tag current_user.avatar_image_url
-    %div
-      %span= current_user.name
+  %section.section_article_new
+    .article_user
+      %div
+        = image_tag current_user.avatar_image_url, class: 'avatar_m'
+      .user_name
+        = current_user.name
 
-  = form_with(model: @article, url: articles_path, id: 'form-article-new', local: true) do |f|
-    %div
-      = f.text_area :content, placeholder: "What's on your mind ?"
-    %div
-      = f.label :images do
-        %div
-          %span +
+    = form_with(model: @article, url: articles_path, class: 'form_article_new', id: 'form-article-new', local: true) do |f|
+      %div
+        = f.text_area :content, placeholder: " What's on your mind ?", rows: '1'
+      .add_images
+        = f.label :images do
+          %span ＋
           %span Album
-      = f.file_field :images, multiple: true, style: 'display:none;'
+        = f.file_field :images, multiple: true, style: 'display:none;'
