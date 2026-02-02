@@ -4,7 +4,7 @@
       = link_to new_article_path do
         = image_tag 'photo-camera.png'
 
-  %section.articles
+  %section.section_articles
     = render 'commons/articles', articles: @articles
 
 = javascript_include_tag "article", "data-turbo-track": "reload", defer: true

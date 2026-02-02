@@ -1,0 +1,12 @@
+// avatar
+
+@mixin avatar($size) {
+  display: block;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+}
+
+.avatar_s {
+  @include avatar(30px);
+}

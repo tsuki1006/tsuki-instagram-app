@@ -2,6 +2,8 @@
 @use 'mixins' as mix;
 @use 'user_form';
 @use 'header';
+@use 'avatar';
+@use 'articles';
 
 html {
   word-spacing: 1px;
