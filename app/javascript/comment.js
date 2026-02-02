@@ -5,11 +5,13 @@ const appendNewComment = (comment) => {
   $('.comments_list').append(
     `
     <li class="comment">
-      <div class="comment_author">
-        <img src="${comment.avatar_url}">
-        <div>${comment.user_name}</div>
+      <div class="comment_avatar">
+        <img src="${comment.avatar_url}" class="avatar_s">
       </div>
-      <p>${comment.content}</p>
+      <div class="comment_text">
+        <div class="comment_name">${comment.user_name}</div>
+        <p  class="comment_content">${comment.content}</p>
+      </div>
     </li>
     `
   )
