@@ -1,0 +1,55 @@
+// article_new
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+.section_article_new {
+  margin-top: 35px;
+}
+
+.article_user {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+
+  .user_name {
+    @include mix.font_medi(var.$font-size-lg)
+  }
+}
+
+
+.form_article_new {
+  margin-top: 30px;
+
+  textarea {
+    font-family: var.$font-family;
+    font-size: var.$font-size-lg;
+    width: 100%;
+    padding: 10px 0;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid var.$color-line;
+    caret-color: var.$color-text-bl;
+  }
+
+  textarea:focus {
+    outline:0;
+  }
+
+  textarea::placeholder {
+    font-family: var.$font-family;
+    font-size: var.$font-size-lg;
+    color: #BDBDBD;
+  }
+
+  .add_images {
+    margin-top: 32px;
+  }
+
+  label {
+    width: 73px;
+    padding: 5px 8px;
+    border: 1px solid #E0E0E0;
+  }
+}
+
+

@@ -1,0 +1,63 @@
+// articles
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+.section_articles {
+  margin-top: 35px;
+}
+
+.article_list + .article_list {
+  margin-top: 35px;
+}
+
+.article_author {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  author_info
+
+  .author_info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author_name {
+    @include mix.font_medi(var.$font-size-md);
+  }
+
+  .article_time {
+    color: var.$color-text-thin;
+  }
+}
+
+.article_content {
+  margin-top: 11px;
+}
+
+.article_actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 14px;
+
+  img {
+    display: block;
+    width: 16px;
+    height: auto;
+  }
+}
+
+.article_text {
+  margin-top: 8px;
+  @include mix.font_medi(var.$font-size);
+
+  .author_comment {
+    span {
+      margin-right: 3px;
+    }
+
+    p {
+      display: inline;
+      font-family: var.$font-family
+    }
+  }
+}

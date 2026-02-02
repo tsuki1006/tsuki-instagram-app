@@ -1,5 +1,85 @@
-// Sassy
+@use 'variables' as var;
+@use 'mixins' as mix;
+@use 'flash';
+@use 'user_form';
+@use 'header';
+@use 'avatar';
+@use 'articles';
+@use 'article_new';
+@use 'comments';
+@use 'profile';
+@use 'follow';
+
+
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var.$font-family;
+  font-size: var.$font-size;
+  color: var.$color-text;
+}
+
+.container {
+  box-sizing: border-box;
+  padding: 20px 16px;
+  width: 100%;
+}
+
+h2 {
+  @include mix.font_medi(var.$font-size-lg);
+}
+
+a {
+  text-decoration: none;
+  color: var.$color-text;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid var.$color-line;
+}
 
 .hidden {
   display: none;
+}
+
+.error_message {
+  color: var.$color-text-thin;
+}
+
+.devise_error {
+  font-family: var.$font-family;
+  padding-bottom: 25px;
+  color: var.$color-text-thin;
+
+  h2 {
+    font-family: var.$font-family;
+    font-size: var.$font-size-md;
+  }
 }

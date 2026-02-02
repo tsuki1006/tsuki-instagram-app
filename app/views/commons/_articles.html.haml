@@ -2,22 +2,23 @@
   - articles.each do |article|
     - author = article.user
 
-    %li
+    %li.article_list
       .article{ data: {article_id: article.id}}
 
         .article_author
           = link_to account_path(author) do
-            = image_tag author.avatar_image_url
-          %div= author.name
-          %div= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
+            = image_tag author.avatar_image_url, class: 'avatar_s'
+          .author_info
+            .author_name= author.name
+            .article_time= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
 
         .article_content
-          .article_content_images
+          .article_images
             %ul
               - article.images.each do |image|
                 %li= image_tag url_for(image)
 
-          .article_content_actions
+          .article_actions
 
             .like
               .like_heart.active-heart.hidden
@@ -30,7 +31,8 @@
             = link_to "https://x.com/intent/tweet?url=#{article_url(article.id)}", title: 'X', target: '_blank' do
               = image_tag 'share.png'
 
-          .article_content_content
-            %div= article.like_info
-            %div= author.name
-            %p= article.content
+          .article_text
+            %p.like_info= article.like_info
+            .author_comment
+              %span= author.name
+              %p= article.content

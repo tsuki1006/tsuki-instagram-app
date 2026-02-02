@@ -1,8 +1,9 @@
 .container
   %header
-    = link_to :back do
-      = image_tag 'back.png', class: 'header_back'
-    .user_name#account_show{ data: {account_id: @user.id}}
+    .link_back
+      = link_to :back do
+        = image_tag 'back.png'
+    %h2.user_name#account_show{ data: {account_id: @user.id}}
       = @user.name
     .relationship
       .follow.hidden
@@ -10,10 +11,10 @@
       .unfollow.hidden
         %p unfollow
 
-  .profile
+  %section.section_profile
     .user_image
       .avatar
-        =image_tag @user.avatar_image_url
+        =image_tag @user.avatar_image_url, class: 'avatar_l'
     .user_counts
       = render 'commons/counts', user: @user
 

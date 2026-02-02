@@ -1,7 +1,8 @@
 .container
   %header
-    = link_to :back do
-      = image_tag 'back.png', class: 'header_back'
+    .link_back
+      = link_to :back do
+        = image_tag 'back.png'
     %h2 Followings
 
-  = render 'commons/accounts', accounts: @followings
+= render 'commons/accounts', accounts: @followings

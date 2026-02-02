@@ -1,0 +1,27 @@
+// follow
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+.accounts_list {
+  .account {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 16px;
+    border-bottom: 1px solid var.$color-line;
+  }
+
+  .account_info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .account_name {
+    @include mix.font_medi(var.$font-size-md);
+  }
+
+  .account_login {
+    color: var.$color-text-thin;
+  }
+}

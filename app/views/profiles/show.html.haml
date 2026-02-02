@@ -1,15 +1,16 @@
 .container
   %header
-    = link_to :back do
-      = image_tag 'back.png', class: 'header_back'
-    .user_name
+    .link_back
+      = link_to :back do
+        = image_tag 'back.png'
+    %h2.user_name
       = current_user.name
 
   %ul
   - @profile.errors.full_messages.each do |message|
     %li= message
 
-  .profile#profile-avatar{data: {avatar_image_url: current_user.avatar_image_url}}
+  %section.section_profile#profile-avatar{data: {avatar_image_url: current_user.avatar_image_url}}
     .user_image
       = form_with(model: @profile, id: "avatar_form", url: profile_path, method: 'put', local: true) do |f|
         = f.label :avatar do
