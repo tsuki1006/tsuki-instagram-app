@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resource :profile, only: [ :show, :update ]
   resources :accounts, only: [ :show ] do
     resources :followings, only: [ :index ]
     resources :followers, only: [ :index ]
@@ -30,7 +29,10 @@ Rails.application.routes.draw do
     resources :comments, only: [ :index, :create ]
   end
 
-  resource :timeline, only: [:show]
+  scope module: :apps do
+    resource :profile, only: [ :show, :update ]
+    resource :timeline, only: [:show]
+  end
 
   namespace :api, defaults: {format: :json} do
     scope '/articles/:article_id' do

@@ -1,5 +1,4 @@
-class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: [ :show, :update ]
+class Apps::ProfilesController < Apps::ApplicationController
   def show
     @profile = current_user.prepare_profile
   end
