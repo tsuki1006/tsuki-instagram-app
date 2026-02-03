@@ -8,7 +8,7 @@ const listenInactiveHeartEvent = () => {
     const activeHeart = targetArticle.find('.active-heart')
     const articleId = targetArticle.data('articleId')
 
-    axios.post(`/articles/${articleId}/like`)
+    axios.post(`/api/articles/${articleId}/like`)
       .then((res) => {
         if (res.data.status === 'ok') {
           $(this).addClass('hidden')
@@ -29,7 +29,7 @@ const listenActiveHeartEvent = () => {
     const inactiveHeart = targetArticle.find('.inactive-heart')
     const articleId = targetArticle.data('articleId')
 
-    axios.delete(`/articles/${articleId}/like`)
+    axios.delete(`/api/articles/${articleId}/like`)
       .then((res) => {
         if (res.data.status === 'ok') {
           $(this).addClass('hidden')
