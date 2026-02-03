@@ -3,12 +3,6 @@ import axios from 'modules/axios'
 
 document.addEventListener('turbo:load', () => {
 
-  // アバター画像を取得して表示
-  const avatarImageUrl = $('#profile-avatar').data('avatarImageUrl')
-  $('.avatar').append(
-    `<img class='avatar_image avatar_l' src=${avatarImageUrl}>`
-  )
-
   // 変更されたアバター画像をサーバーに送り、画面上の画像を更新
   $('.input_avatar').on('change', function() {
 
@@ -31,8 +25,8 @@ document.addEventListener('turbo:load', () => {
       const newAvatar = res.data.avatar_url
 
       if (newAvatar) {
-      $('.avatar_image').attr('src', newAvatar)
-      window.alert('画像の更新に成功しました')
+        $('.avatar_image').attr('src', newAvatar)
+        window.alert('画像の更新に成功しました')
       }
     })
     .catch(e => {
