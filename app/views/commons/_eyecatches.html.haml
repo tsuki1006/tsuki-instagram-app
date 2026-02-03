@@ -1,3 +1,5 @@
-%ul.eyecatches_list
-  - user.article_eyecatches.each do |eyecatch|
-    %li= image_tag url_for(eyecatch)
+- user.article_eyecatches.each_slice(6) do |group|
+  %ul.eyecatches_list_group
+    - group.each_with_index do |eyecatch, index|
+      %li{ class: "eyecatch_#{index + 1}" }
+        = image_tag url_for(eyecatch)
