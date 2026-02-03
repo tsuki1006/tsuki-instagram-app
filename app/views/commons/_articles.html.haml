@@ -13,10 +13,12 @@
             .article_time= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
 
         .article_content
-          .article_images
-            %ul
-              - article.images.each do |image|
-                %li= image_tag url_for(image)
+
+          .article_images{ class: "count-#{article.img_count} >= 3 ? '3' : #{article.img_count}" }
+            %ul.image_list
+              - article.images.take(3).each_with_index do |image, index|
+                %li{ class: "image_item_#{index + 1}" }
+                  = image_tag url_for(image)
 
           .article_actions
 
