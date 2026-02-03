@@ -2,6 +2,7 @@
 
 @mixin avatar($size) {
   display: block;
+  object-fit: cover;
   border-radius: 50%;
   width: $size;
   height: $size;
