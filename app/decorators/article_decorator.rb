@@ -2,6 +2,10 @@
 
 module ArticleDecorator
 
+  def img_count
+    images.count
+  end
+
   def like_info
     return if likes.empty?
 
