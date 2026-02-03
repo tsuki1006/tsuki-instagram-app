@@ -23,10 +23,9 @@ document.addEventListener('turbo:load', () => {
       const isFollowing = res.data.isFollowing
       handleFollowDisplay(isFollowing)
     })
-
-  // フォローする
-  listenFollowEvent(accountId)
-  // フォローを外す
-  listenUnfollowEvent(accountId)
-
 })
+
+// フォローする
+listenFollowEvent()
+// フォローを外す
+listenUnfollowEvent()
