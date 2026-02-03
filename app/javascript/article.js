@@ -25,7 +25,7 @@ document.addEventListener('turbo:load', () => {
     const self = this
     const articleId = $(this).data('articleId')
 
-    axios.get(`/articles/${articleId}/like`)
+    axios.get(`/api/articles/${articleId}/like`)
     .then((res) => {
       const hasLiked = res.data.hasLiked
       handleHeartDisplay(self, hasLiked)

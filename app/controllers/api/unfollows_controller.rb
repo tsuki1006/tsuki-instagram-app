@@ -1,6 +1,4 @@
-class UnfollowsController < ApplicationController
-  before_action :authenticate_user!
-
+class Api::UnfollowsController < Api::ApplicationController
   def create
     account = User.find(params[:account_id])
     current_user.unfollow!(account)
