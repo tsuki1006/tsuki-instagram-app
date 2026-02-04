@@ -16,8 +16,9 @@ const followersCountDown = () => {
 }
 
 // フォローする
-const listenFollowEvent = (accountId) => {
-  $('.follow').on('click', function() {
+const listenFollowEvent = () => {
+  $(document).on('click', '.follow', function() {
+    const accountId = $('#account_show').data('accountId')
     axios.post(`/api/accounts/${accountId}/follow`)
       .then((res) => {
         if (res.data.status === 'ok') {
@@ -34,8 +35,9 @@ const listenFollowEvent = (accountId) => {
 }
 
 // フォローを外す
-const listenUnfollowEvent = (accountId) => {
-  $('.unfollow').on('click', function() {
+const listenUnfollowEvent = () => {
+  $(document).on('click', '.unfollow', function() {
+    const accountId = $('#account_show').data('accountId')
     axios.post(`/api/accounts/${accountId}/unfollow`)
       .then((res) => {
         if (res.data.status === 'ok') {

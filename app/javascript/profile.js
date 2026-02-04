@@ -1,37 +1,30 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
 
-document.addEventListener('turbo:load', () => {
+// 変更されたアバター画像をサーバーに送り、画面上の画像を更新
+$(document).on('change', '.input_avatar', function() {
+  const file = this.files[0]
+  if (!file) {
+    window.alert('画像を選択してください')
+    return
+  }
 
-  // 変更されたアバター画像をサーバーに送り、画面上の画像を更新
-  $('.input_avatar').on('change', function() {
+  const formData = new FormData($('#avatar_form')[0])
 
-    const file = this.files[0]
-
-    if (!file) {
-      window.alert('画像を選択してください')
-      return
+  axios.put('/profile', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
     }
-
-    const formData = new FormData($('#avatar_form')[0])
-
-    axios.put('/profile', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-
-    .then(res => {
-      const newAvatar = res.data.avatar_url
-
-      if (newAvatar) {
-        $('.avatar_image').attr('src', newAvatar)
-        window.alert('画像の更新に成功しました')
-      }
-    })
-    .catch(e => {
-      console.log(e)
-      window.alert('画像の更新に失敗しました')
-    })
+  })
+  .then(res => {
+    const newAvatar = res.data.avatar_url
+    if (newAvatar) {
+      $('.avatar_image').attr('src', newAvatar)
+      window.alert('画像の更新に成功しました')
+    }
+  })
+  .catch(e => {
+    console.log(e)
+    window.alert('画像の更新に失敗しました')
   })
 })
