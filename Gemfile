@@ -45,6 +45,7 @@ group :development, :test do
   # gem "rubocop-rails-omakase", require: false
 
   gem 'pry-byebug'
+  gem 'rspec-rails'
   gem 'rubocop-rails', require: false
 end
 
