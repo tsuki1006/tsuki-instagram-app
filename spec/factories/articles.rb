@@ -1,9 +1,11 @@
 FactoryBot.define do
   factory :article do
-    content { Faker::Lorem.characters(number: 10) }
-  end
+    content { Faker::Lorem.characters(number: 20) }
 
-  after(:build) do |article|
-    article.images.attach(io: File.open('app/assets/images/form-top.png'), filename: 'form-top.png')
+    trait :with_image do
+      after(:build) do |article|
+        article.images.attach(io: File.open('app/assets/images/test.png'), filename: 'form-top.png')
+      end
+    end
   end
 end
