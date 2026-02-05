@@ -17,7 +17,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 300 }
   validates :images, presence: true
 
   belongs_to :user

@@ -20,7 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Comment < ApplicationRecord
-  validates :content, presence: true
+  validates :content, presence: true, length: { minimum: 1, maximum: 200 }
 
   belongs_to :user
   belongs_to :article
