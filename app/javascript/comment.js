@@ -42,7 +42,7 @@ document.addEventListener('turbo:load', () => {
       } else {
 
         // コメント送信
-        axios.post(`/articles/${articleId}/comments`, {
+        axios.post(`/articles/${articleId}/comments.json`, {
           comment: { content: content }
         })
           // コメントを画面に追加
@@ -53,7 +53,7 @@ document.addEventListener('turbo:load', () => {
           })
 
           .catch((e) => {
-            window.alert('Error')
+            window.alert(e.response.data.error)
             console.log(e)
           })
       }
