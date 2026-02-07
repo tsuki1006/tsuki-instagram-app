@@ -55,6 +55,7 @@ document.addEventListener('turbo:load', () => {
           .catch((e) => {
             window.alert(e.response.data.error)
             console.log(e)
+            window.location.href = '/users/sign_in'
           })
       }
     }
