@@ -63,4 +63,13 @@ class User < ApplicationRecord
     relation = following_relationships.find_by!(following_id: user.id)
     relation.destroy!
   end
+
+  # API用アバター画像URL
+  def avatar_url_for_api
+    if profile&.avatar&.attached?
+      Rails.application.routes.url_helpers.polymorphic_path(user.profile.avatar, only_path: true)
+    else
+      ActionController::Base.helpers.asset_path('default-avatar.svg')
+    end
+  end
 end

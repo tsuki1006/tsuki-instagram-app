@@ -30,6 +30,13 @@ document.addEventListener('turbo:load', () => {
       const hasLiked = res.data.hasLiked
       handleHeartDisplay(self, hasLiked)
     })
+    .catch((e) => {
+      if (e.status === 401) {
+        $(self).find('.inactive-heart').removeClass('hidden')
+      } else {
+        console.log(e)
+      }
+    })
   })
 
   // いいねする

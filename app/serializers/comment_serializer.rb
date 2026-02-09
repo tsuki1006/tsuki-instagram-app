@@ -25,15 +25,13 @@ class CommentSerializer < ActiveModel::Serializer
 
   # ユーザー名
   def user_name
-    user = User.find(object.user_id)
+    user = object.user
     user.name
   end
 
-  # アバター画像が設定されていればActiveStorageのURL、されていなければnilを返す
+  # アバター画像が設定されていればActiveStorageのURL、されていなければデフォルト画像のURLを返す
   def avatar_url
-    user = User.find(object.user_id)
-    return nil unless user.profile.avatar.attached?
-    Rails.application.routes.url_helpers.polymorphic_path(user.profile.avatar, only_path: true)
+    object.user.avatar_url_for_api
   end
 
 end
