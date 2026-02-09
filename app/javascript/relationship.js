@@ -23,6 +23,9 @@ document.addEventListener('turbo:load', () => {
       const isFollowing = res.data.isFollowing
       handleFollowDisplay(isFollowing)
     })
+    .catch((e) => {
+      e.status !== 401 && console.log(e)
+    })
 })
 
 // フォローする
