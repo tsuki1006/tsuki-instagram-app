@@ -16,8 +16,12 @@ const listenInactiveHeartEvent = () => {
         }
       })
       .catch((e) => {
-        window.alert('Error')
-        console.log(e)
+        if (e.status === 401) {
+          window.alert(e.response.data.error)
+          window.location.href = '/users/sign_in'
+        } else {
+          console.log(e)
+        }
       })
   })
 }
