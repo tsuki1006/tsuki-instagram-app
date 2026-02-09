@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::Unfollows", type: :request do
+RSpec.describe 'Api::Unfollows', type: :request do
 
   let!(:users) { create_list(:user, 2) }
   let!(:user) { users.first }

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Comments", type: :request do
+RSpec.describe 'Comments', type: :request do
 
   let!(:user) { create(:user) }
   let!(:article) { create(:article, :with_image, user: user) }
   let!(:comments) { create_list(:comment, 3, user: user, article: article) }
 
-  describe "GET /comments" do
+  describe 'GET /comments' do
 
     it '200 Status' do
       get article_comments_path(article_id: article.id)
@@ -14,7 +14,7 @@ RSpec.describe "Comments", type: :request do
     end
 
     context 'jsonのリクエストを送った場合' do
-      it "200 Status コメントが返される" do
+      it '200 Status コメントが返される' do
         get article_comments_path(article_id: article.id), as: :json
         expect(response).to have_http_status(200)
 

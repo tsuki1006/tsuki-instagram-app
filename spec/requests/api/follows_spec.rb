@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "Api::Follows", type: :request do
+RSpec.describe 'Api::Follows', type: :request do
 
   let!(:users) { create_list(:user, 2) }
   let!(:user) { users.first }
   let!(:following) { users.second }
 
-  describe "GET /api/accounts/:account_id/follow" do
+  describe 'GET /api/accounts/:account_id/follow' do
     context 'ログインしている場合' do
       before do
         sign_in user
       end
 
-      it "200 Status フォローの状態が返される" do
+      it '200 Status フォローの状態が返される' do
         get api_follow_path(account_id: following.id)
         expect(response).to have_http_status(200)
 

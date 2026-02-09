@@ -69,7 +69,7 @@ class User < ApplicationRecord
     if profile&.avatar&.attached?
       Rails.application.routes.url_helpers.polymorphic_path(user.profile.avatar, only_path: true)
     else
-      ActionController::Base.helpers.asset_path("default-avatar.svg")
+      ActionController::Base.helpers.asset_path('default-avatar.svg')
     end
   end
 end
