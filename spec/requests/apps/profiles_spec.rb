@@ -30,7 +30,7 @@ RSpec.describe "Apps::Profiles", type: :request do
         sign_in user
       end
 
-      it '200 Status' do
+      it '200 Status アバターが変更される' do
         avatar = fixture_file_upload('app/assets/images/test.png', 'image/png')
         profile_params = attributes_for(:profile).merge(avatar: avatar)
 

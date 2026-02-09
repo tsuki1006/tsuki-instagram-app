@@ -14,7 +14,7 @@ RSpec.describe "Comments", type: :request do
     end
 
     context 'jsonのリクエストを送った場合' do
-      it "200 Status" do
+      it "200 Status コメントが返される" do
         get article_comments_path(article_id: article.id), as: :json
         expect(response).to have_http_status(200)
 
@@ -33,7 +33,7 @@ RSpec.describe "Comments", type: :request do
         sign_in user
       end
 
-      it '200 Status' do
+      it '200 Status コメントが作成される' do
         comment_params = attributes_for(:comment).merge(user_id: user.id)
 
         post article_comments_path(article_id: article.id), params: { comment: comment_params }
