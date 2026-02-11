@@ -4,7 +4,7 @@ FactoryBot.define do
 
     trait :with_image do
       after(:build) do |article|
-        article.images.attach(io: File.open('app/assets/images/test.png'), filename: 'form-top.png')
+        article.images.attach(io: File.open('app/assets/images/test.png'), filename: 'test.png')
       end
     end
   end

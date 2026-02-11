@@ -7,7 +7,7 @@
 
         .article_author
           = link_to account_path(author) do
-            = image_tag author.avatar_image_url, class: 'avatar_s'
+            = image_tag author.avatar_image_url, alt: 'Avatar', class: 'avatar_s'
           .author_info
             .author_name= author.name
             .article_time= time_ago_in_words(article.created_at, scope: 'datetime.distance_in_words.short') + " ago"
@@ -24,12 +24,12 @@
 
             .like
               .like_heart.active-heart.hidden
-                = image_tag 'active-like.png'
+                = image_tag 'active-like.png', alt: 'Active like'
               .like_heart.inactive-heart.hidden
-                = image_tag 'inactive-like.png'
+                = image_tag 'inactive-like.png', alt: 'Inactive like'
 
             = link_to article_comments_path(article) do
-              = image_tag 'comment.png'
+              = image_tag 'comment.png', alt: 'Comment'
             = link_to "https://x.com/intent/tweet?url=#{article_url(article.id)}", title: 'X', target: '_blank' do
               = image_tag 'share.png'
 
@@ -37,4 +37,4 @@
             %p.like_info= article.like_info
             .author_comment
               %span= author.name
-              %p= article.content
+              %p.author_comment_content= article.content
