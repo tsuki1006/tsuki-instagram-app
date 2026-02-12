@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Timelines", type: :system do
+RSpec.describe 'Timelines', type: :system do
 
   describe 'Timeline' do
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system, display: true do
+RSpec.describe 'Users', type: :system, display: true do
 
   let!(:user) { create(:user) }
 
@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :system, display: true do
           fill_in 'Email', with: 'test@example.com'
           fill_in 'Password', with: 'Password'
           click_button 'CREATE ACCOUNT'
-          expect(page).to have_content "Name has already been taken"
+          expect(page).to have_content 'Name has already been taken'
 
         end
       end
@@ -54,7 +54,7 @@ RSpec.describe "Users", type: :system, display: true do
           fill_in 'Email', with: user.email
           fill_in 'Password', with: 'Password'
           click_button 'CREATE ACCOUNT'
-          expect(page).to have_content "Email has already been taken"
+          expect(page).to have_content 'Email has already been taken'
         end
       end
       context 'password 未記入' do
@@ -66,7 +66,6 @@ RSpec.describe "Users", type: :system, display: true do
         end
       end
     end
-
 
     describe 'Sign in' do
       before do

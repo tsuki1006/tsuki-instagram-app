@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Profiles", type: :system do
+RSpec.describe 'Profiles', type: :system do
 
   let!(:user) { create(:user) }
   let!(:article) { create(:article, :with_image, user: user) }

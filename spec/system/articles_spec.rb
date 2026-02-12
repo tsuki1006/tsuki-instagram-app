@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Articles", type: :system do
+RSpec.describe 'Articles', type: :system do
 
   let!(:user) { create(:user) }
   let!(:articles) { create_list(:article, 3, :with_image, user: user) }
@@ -66,7 +66,6 @@ RSpec.describe "Articles", type: :system do
         end
       end
     end
-
 
     describe '記事投稿ページ' do
 

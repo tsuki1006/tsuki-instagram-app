@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Accounts", type: :system do
+RSpec.describe 'Accounts', type: :system do
 
   describe 'Account' do
 

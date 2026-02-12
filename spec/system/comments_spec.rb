@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Comments", type: :system do
+RSpec.describe 'Comments', type: :system do
 
   describe 'Comment', js: true do
 
