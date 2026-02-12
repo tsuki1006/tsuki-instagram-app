@@ -70,6 +70,17 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.before(:each, type: :system) do
+    # 通常は headless (ブラウザを表示しない)
+    driven_by :selenium_chrome_headless
+  end
+
+  config.before(:each, type: :system, display: true) do
+    # display: true がついている時だけブラウザを表示
+    driven_by :selenium_chrome
+  end
+
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end

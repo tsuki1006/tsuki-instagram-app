@@ -2,7 +2,7 @@
   %header
     .link_new
       = link_to new_article_path do
-        = image_tag 'photo-camera.png'
+        = image_tag 'photo-camera.png', alt: 'Create new article'
 
   %section.section_articles
     = render 'commons/articles', articles: @articles

@@ -22,7 +22,7 @@
       %div
         = f.text_area :content, placeholder: " What's on your mind ?", rows: '1'
       .add_images
-        = f.label :images do
+        = f.label :images, id: 'label_article_images' do
           %span ＋
           %span Album
         = f.file_field :images, multiple: true, style: 'display:none;'
