@@ -83,7 +83,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # 送信者のメールアドレスのドメイン
-  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_mailer.default_url_options = { host: ENV['MAILGUN_DOMAIN'] }
 
   # Mailgun
   ActionMailer::Base.smtp_settings = {
