@@ -67,7 +67,7 @@ class User < ApplicationRecord
   # API用アバター画像URL
   def avatar_url_for_api
     if profile&.avatar&.attached?
-      Rails.application.routes.url_helpers.polymorphic_path(user.profile.avatar, only_path: true)
+      Rails.application.routes.url_helpers.polymorphic_path(profile.avatar, only_path: true)
     else
       ActionController::Base.helpers.asset_path('default-avatar.svg')
     end
