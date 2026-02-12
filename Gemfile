@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rubocop-rails', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -76,3 +77,5 @@ gem 'haml-rails'
 gem 'html2haml'
 gem 'jsbundling-rails', '~> 1.3'
 gem 'sidekiq'
+gem 'aws-sdk-s3', require: false
+gem 'openssl'

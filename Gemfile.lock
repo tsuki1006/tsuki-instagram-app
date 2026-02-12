@@ -87,6 +87,25 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.3)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1213.0)
+    aws-sdk-core (3.242.0)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      bigdecimal
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sdk-kms (1.121.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3 (1.213.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
     bcrypt (3.1.21)
     benchmark (0.5.0)
@@ -137,6 +156,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.6.2)
+    dotenv (3.2.0)
+    dotenv-rails (3.2.0)
+      dotenv (= 3.2.0)
+      railties (>= 6.1)
     drb (2.2.3)
     erb (6.0.1)
     erubi (1.13.1)
@@ -199,6 +222,7 @@ GEM
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
+    jmespath (1.6.2)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
     json (2.18.0)
@@ -259,6 +283,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.0-x86_64-linux-musl)
       racc (~> 1.4)
+    openssl (4.0.0)
     orm_adapter (0.5.0)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -472,6 +497,7 @@ DEPENDENCIES
   active_decorator
   active_model_serializers
   annotate
+  aws-sdk-s3
   better_errors
   binding_of_caller
   bootsnap
@@ -480,6 +506,7 @@ DEPENDENCIES
   dartsass-rails (~> 0.5.1)
   debug
   devise
+  dotenv-rails
   factory_bot_rails
   faker
   haml-rails
@@ -489,6 +516,7 @@ DEPENDENCIES
   jsbundling-rails (~> 1.3)
   letter_opener
   letter_opener_web (~> 3.0)
+  openssl
   pg (~> 1.1)
   pry-byebug
   puma (>= 5.0)
